@@ -1,0 +1,609 @@
+{
+  "AccreditationCycle": {
+    "name": "AccreditationCycle",
+    "fields": [
+      {
+        "name": "name",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "institution",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditor",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "frameworkVersion",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "cycleStart",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "visitAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      }
+    ]
+  },
+  "AccreditationStandard": {
+    "name": "AccreditationStandard",
+    "fields": [
+      {
+        "name": "name",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "standardCode",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "requirementText",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "owner",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "dueAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "StandardEvidence": {
+    "name": "StandardEvidence",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationStandardId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationStandard"
+      },
+      {
+        "name": "sourceReference",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "collectedAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "owner",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "description",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "AssessmentMeasure": {
+    "name": "AssessmentMeasure",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationStandardId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationStandard"
+      },
+      {
+        "name": "metric",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "target",
+        "kind": "number",
+        "required": true,
+        "min": 0
+      },
+      {
+        "name": "observed",
+        "kind": "number",
+        "required": true,
+        "min": 0
+      },
+      {
+        "name": "periodEnd",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "method",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "SelfStudySection": {
+    "name": "SelfStudySection",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationStandardId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationStandard"
+      },
+      {
+        "name": "narrative",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "sourceReferences",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "author",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "revisedAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "SiteVisitRequest": {
+    "name": "SiteVisitRequest",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "requester",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "requestedAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "dueAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "requestText",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "evidenceReference",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "AccreditationFinding": {
+    "name": "AccreditationFinding",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationStandardId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationStandard"
+      },
+      {
+        "name": "findingText",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "receivedAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "severity",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "responseDueAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "ImprovementAction": {
+    "name": "ImprovementAction",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationFindingId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationFinding"
+      },
+      {
+        "name": "action",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "owner",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "dueAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "evidence",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "CommitteeMeeting": {
+    "name": "CommitteeMeeting",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "heldAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "chair",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "participants",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "decisions",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "followUp",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "OperationalTask": {
+    "name": "OperationalTask",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "owner",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "priority",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "startAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "dueAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "done",
+        "kind": "boolean",
+        "required": true
+      },
+      {
+        "name": "notes",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "RuleVersion": {
+    "name": "RuleVersion",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "jurisdiction",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "version",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "effectiveAt",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "expiresAt",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "sourceUrl",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "requirementText",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  },
+  "DocumentRequirement": {
+    "name": "DocumentRequirement",
+    "fields": [
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "category",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "requiredBy",
+        "kind": "date",
+        "required": true
+      },
+      {
+        "name": "sourceReference",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "evidenceReference",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "reviewNotes",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accreditationCycleId",
+        "kind": "string",
+        "required": true,
+        "relation": "AccreditationCycle"
+      }
+    ],
+    "parent": {
+      "entity": "AccreditationCycle",
+      "field": "accreditationCycleId"
+    }
+  }
+}
